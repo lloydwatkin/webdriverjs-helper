@@ -356,6 +356,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+** 1.0.0 2014-04-28
+  * Forked from original repository
+  * Added `coffee-script` as a dependency
+  * Updated tests to kick off a selenium server 
+  
 **0.2.1** 2013-10-20 Add `exec` and `execAsync` JavaScript support 
 
 **0.2.0** 2013-10-20 Add dialog behaviors
