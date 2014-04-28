@@ -54,16 +54,17 @@ describe 'webdriver window helper', ->
 
   describe '#maximize', ->
 
-    it 'could maximize the window', (done) ->
-      currentWindow.maximize()
-      currentWindow.getSize().then (size) ->
-        [maxWidth, maxHeight] = [size.width, size.height]
-        currentWindow.size 100, 100
-        currentWindow.position 200, 200
+    if !process.env.TRAVIS
+      it 'could maximize the window', (done) ->
         currentWindow.maximize()
-        currentWindow.size (width, height) ->
-          width.should.equal maxWidth
-          height.should.equal maxHeight
-          done()
+        currentWindow.getSize().then (size) ->
+          [maxWidth, maxHeight] = [size.width, size.height]
+          currentWindow.size 100, 100
+          currentWindow.position 200, 200
+          currentWindow.maximize()
+          currentWindow.size (width, height) ->
+            width.should.equal maxWidth
+            height.should.equal maxHeight
+            done()
 
       
