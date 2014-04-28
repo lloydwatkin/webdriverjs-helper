@@ -1,27 +1,39 @@
 {
-  "name": "webdriver-helper",
-  "description": "JavaScript WebDriver Helper offer the friendly apis while using selenium-webdriver.",
-  "version": "0.2.1",
-  "homepage": "https://github.com/winsonwq/webdriver-helper",
+  "name": "webdriverjs-helper",
+  "description": "JavaScript WebDriver Helper offer friendly APIs while using selenium-webdriver.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/surevine/webdriverjs-helper",
   "author": {
     "name": "Wang Qiu",
     "email": "winsonwq@gmail.com",
     "url": "http://ishouldbeageek.me"
   },
+  "contributors": [
+    {
+      "name": "Lloyd Watkin",
+      "email": "lloyd.watkin@surevine.com",
+      "url": "http://twitter.com/lloydwatkin"
+    },
+    {
+      "name": "Martin Hewitt",
+      "email": "martin.hewitt@surevine.com",
+      "url": "http://twitter.com/handlewithcare"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:winsonwq/webdriver-helper.git"
+    "url": "git@github.com:surevine/webdriverjs-helper.git"
   },
   "bugs": {
-    "url": "https://github.com/winsonwq/webdriver-helper/issues"
+    "url": "https://github.com/surevine/webdriverjs-helper/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/winsonwq/webdriver-helper/blob/master/LICENSE-MIT"
+      "url": "https://github.com/surevine/webdriverjs-helper/blob/master/LICENSE"
     }
   ],
-  "main": "lib/webdriver-helper",
+  "main": "lib/webdriverjs-helper",
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -33,7 +45,8 @@
   "dependencies": {
     "selenium-webdriver": ">=2.33.0",
     "underscore": "*",
-    "Mr.Async": "~0.3.1"
+    "Mr.Async": "~0.3.1",
+    "coffee-script": "^1.7.1"
   },
   "devDependencies": {
     "grunt-contrib-watch": "~0.2.0",

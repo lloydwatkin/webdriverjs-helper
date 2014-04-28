@@ -1,7 +1,7 @@
 webdriver = require 'selenium-webdriver'
 builder = require './webdriver-builder'
 require('chai').should()
-require('../../lib/webdriver-helper')
+require('../../lib/webdriverjs-helper')
 
 describe 'webdriver helper', ->
 
