@@ -1,21 +1,24 @@
 webdriver = require 'selenium-webdriver'
 builder = require './webdriver-builder'
 require('chai').should()
-require('../../lib/webdriverjs-helper')
+require '../../lib/webdriverjs-helper'
 
 describe 'webdriver window helper', ->
 
-  browser = null
+  driver = null
   currentWindow = null
   host = 'http://localhost:9001'
 
-  before -> browser = builder.build()
+  before (done) -> 
+    builder.getBrowser (browser) ->
+        driver = browser.build()
+        done()
 
   beforeEach -> 
-    browser.get host
-    currentWindow = browser.window()
+    driver.get host
+    currentWindow = driver.window()
 
-  after -> browser.quit()
+  after -> driver.quit()
 
   describe '#position', ->
 

@@ -1,14 +1,18 @@
 webdriver = require 'selenium-webdriver'
 builder = require './webdriver-builder'
 require('chai').should()
-require('../../lib/webdriverjs-helper')
+require '../../lib/webdriverjs-helper'
 
 describe 'webdriver helper', ->
 
   driver = null
   host = 'http://localhost:9001'
 
-  before -> driver = builder.build()
+  before (done) -> 
+    builder.getBrowser (browser) ->
+        driver = browser.build()
+        done()
+    
   beforeEach -> driver.get host
   after -> driver.quit()
 

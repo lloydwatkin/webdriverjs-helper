@@ -1,5 +1,11 @@
 webdriver = require 'selenium-webdriver'
-builder = new webdriver.Builder().usingServer 'http://localhost:4444/wd/hub'
-builder = builder.withCapabilities { browserName: 'firefox' }
 
-module.exports = builder
+getBrowser = (done) ->
+    SeleniumServer = require('selenium-webdriver/remote').SeleniumServer
+    server = new SeleniumServer 'test/resources/selenium-server-standalone-2.39.0.jar', { port: 4444 }
+    server.start().then () ->
+        builder = new webdriver.Builder().usingServer server.address()
+        builder = builder.withCapabilities { browserName: 'firefox' }
+        done builder
+
+exports.getBrowser = getBrowser
