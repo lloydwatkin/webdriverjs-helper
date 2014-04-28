@@ -2,9 +2,9 @@ language: node_js
 before_install:
   - npm i -g grunt-cli
   - sudo apt-get install consolekit fluxbox
-  - exec ck-launch-session dbus-launch --sh-syntax --exit-with-session startfluxbox
   - export DISPLAY=:90.0
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_90.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :90 -ac -screen 0 1280x1024x16"
+  - exec ck-launch-session dbus-launch --sh-syntax --exit-with-session startfluxbox
 node_js:
   - "0.10"
 env:
