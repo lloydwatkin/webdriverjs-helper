@@ -5,6 +5,16 @@ This helper library offer lots of friendly api while using JavaScript WebDriver
 ## Getting Started
 Install the module with: `npm install webdriverjs-helper` to enable the friendly APIs.
 
+## Testing
+
+`npm test`
+
+This starts a selenium server and runs tests in Firefox.
+
+## Build status 
+
+[![Build Status](https://travis-ci.org/surevine/webdriverjs-helper.svg?branch=master)](https://travis-ci.org/surevine/webdriverjs-helper)
+
 ## Documentation
 
 You could setup the selenium webdriver like this. Remember to require 'webdriver-helper' to enable friendly apis.
