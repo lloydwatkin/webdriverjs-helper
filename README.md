@@ -1,9 +1,9 @@
-# webdriver-helper
+# webdriverjs-helper
 
 This helper library offer lots of friendly api while using JavaScript WebDriver
 
 ## Getting Started
-Install the module with: `npm install webdriver-helper` to enable the friendly APIs.
+Install the module with: `npm install webdriverjs-helper` to enable the friendly APIs.
 
 ## Documentation
 
@@ -351,6 +351,7 @@ Dismiss(Cancel) the alert, confirm and prompt dialog.
 Enter text in prompt dialog.
 
 ## Contributing
+
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
@@ -361,6 +362,19 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 **0.1.0** 2013-10-17 MVP
 
+## Original Project
+
+Originally forked from https://github.com/winsonwq/webrdirver-helper.git
+
+Forked as there was a lack of communication from the original developer and we required patches to be added.
+
+Thanks to Wang Qiu for creating a great library upon which we could build.
+
 ## License
+
+MIT
+
+## Original license
+
 Copyright (c) 2013 Wang Qiu  
 Licensed under the MIT license.
