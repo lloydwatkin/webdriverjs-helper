@@ -44,9 +44,10 @@
   },
   "dependencies": {
     "selenium-webdriver": ">=2.33.0",
-    "underscore": "*",
+    "underscore": "~1.6.0",
     "Mr.Async": "~0.3.1",
-    "coffee-script": "^1.7.1"
+    "coffee-script": "~1.7.1",
+    "async": "~0.8.0"
   },
   "devDependencies": {
     "grunt-contrib-watch": "~0.2.0",

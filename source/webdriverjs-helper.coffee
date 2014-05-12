@@ -4,6 +4,7 @@ WebDriver = webdriver.WebDriver
 _ = require 'underscore'
 mr = require 'Mr.Async'
 urlHelper = require 'url'
+asyncLibrary = require 'async'
 
 class Elements extends Array
 
@@ -79,17 +80,15 @@ _.extend webdriver.WebElement.prototype,
     that = @
     @findElements(webdriver.By.tagName('option')).then (options) ->
 
-      mr.asynEach(options, ((option) ->
-        iterator = this
-        option.isSelected (selected) ->
-          if selected
-            option.value (optValue) -> 
+      asyncLibrary.each options, (option, callback) ->
+          option.isSelected (selected) ->
+            return callback() if (!selected)
+            option.value (optValue) ->
               values.push optValue
-              iterator.next()
-          else iterator.next()
-      ), -> 
-        valuesHandler.call that, values
-      ).start()
+              callback()
+      , (error, results) ->
+          results = [] if (error)
+          valuesHandler values
 
   option: (values...) ->
     targetOptions = []
