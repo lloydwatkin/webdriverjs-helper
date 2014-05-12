@@ -2,9 +2,8 @@ webdriver = require 'selenium-webdriver'
 WebDriver = webdriver.WebDriver
 
 _ = require 'underscore'
-mr = require 'Mr.Async'
 urlHelper = require 'url'
-asyncLibrary = require 'async'
+async = require 'async'
 
 class Elements extends Array
 
@@ -80,27 +79,26 @@ _.extend webdriver.WebElement.prototype,
     that = @
     @findElements(webdriver.By.tagName('option')).then (options) ->
 
-      asyncLibrary.each options, (option, callback) ->
+      async.each options, (option, callback) ->
           option.isSelected (selected) ->
             return callback() if (!selected)
-            option.value (optValue) ->
-              values.push optValue
+            option.value (optionValue) ->
+              values.push optionValue
               callback()
       , (error, results) ->
-          results = [] if (error)
           valuesHandler values
 
   option: (values...) ->
     targetOptions = []
     @findElements(webdriver.By.tagName('option')).then (options) ->
 
-      mr.asynEach(options, ((option) ->
-        option.getAttribute('value').then this.callback (optValue) -> 
-          targetOptions.push(option) if _.contains values, optValue
-      ), -> 
-        _.each targetOptions, (option) ->
-          option.click()
-      ).start()
+      async.each options, (option, callback) ->
+          option.getAttribute('value').then (optionValue) ->
+            targetOptions.push(option) if _.contains values, optionValue
+            callback()
+      , ->
+          _.each targetOptions, (option) ->
+            option.click()
 
 _.extend WebDriver.Window.prototype, {
   position: (x, y) ->
@@ -139,7 +137,7 @@ _.extend WebDriver.prototype, {
 
   _exec: () ->
     args = _.toArray arguments
-    async = args.shift()
+    asyncArgument = args.shift()
 
     return if args.length < 1
     while arg = args.pop()
@@ -148,7 +146,7 @@ _.extend WebDriver.prototype, {
       callArgs = arg if _.isArray arg
       callArgs = arg.wdElements if arg instanceof Elements
 
-    execute = if async then @executeAsyncScript else @executeScript
+    execute = if asyncArgument then @executeAsyncScript else @executeScript
     execute.call(@, script, callArgs).then proxy @, callback
 
   exec: () -> @_exec.apply @, [false].concat _.toArray arguments
