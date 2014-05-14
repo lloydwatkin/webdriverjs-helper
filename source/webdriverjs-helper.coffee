@@ -168,7 +168,10 @@ _.extend WebDriver.prototype, {
     selector.replace partialLinkTextFormula, (matched, partial) -> partialText = partial
     return @element selector if partialText is ''
     @findElement webdriver.By.partialLinkText partialText
-
+    
+  button: (label) ->
+    @findElement webdriver.By.xpath('//button[text()="' + label + '"]')
+        
   dropdownlist: (selector) -> @element selector
 
   navigateTo: (url) -> 

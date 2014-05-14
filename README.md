@@ -279,6 +279,10 @@ browser.dropdownlist(selector).values(function (values) {
 });
 ```
 
+#### browser.button(label)
+
+Get first matched button by label, other methods are then available.
+
 #### browser.link(selector)
 Use css selector to find the matched link
 

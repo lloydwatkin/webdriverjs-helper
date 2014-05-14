@@ -123,6 +123,13 @@ describe 'webdriver helper', ->
       driver.input('input#disabled-btn[name="button"]').isEnabled (enabled) ->
         enabled.should.be.false
         done();
+        
+  describe 'Button label', ->
+            
+    it 'should find a button by label', (done) ->
+        driver.button('Button Label').then () ->
+            done()
+        , done
 
   describe '#displayed', ->
 
