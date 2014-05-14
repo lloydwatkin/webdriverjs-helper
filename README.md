@@ -370,6 +370,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+** 1.3.0 2014-05-14
+  * Add support for ```browser.button(label)``` selector
 
 ** 1.2.0 2014-05-12
   * Removed [Mr Async](https://github.com/winsonwq/Mr.Async) as a dependency and switched to [async](https://github.com/caolan/async) to solve and `amdefine` issue
