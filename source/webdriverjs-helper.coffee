@@ -170,7 +170,7 @@ _.extend WebDriver.prototype, {
     @findElement webdriver.By.partialLinkText partialText
     
   button: (label) ->
-    @findElement webdriver.By.xpath('//button[text()="' + label + '"]')
+    @content label, 'button'
         
   dropdownlist: (selector) -> @element selector
 
