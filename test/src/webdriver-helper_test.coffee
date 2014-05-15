@@ -230,8 +230,12 @@ describe 'webdriver helper', ->
                 attributeValue.should.equal 'yes!'
                 done()
                 
-        it 'can make a partial match', (done) ->
+        it 'can make a partial match with no element', (done) ->
             driver.content('ment sel', null, true).attr 'foundme', (attributeValue) ->
                 attributeValue.should.equal 'yes!'
                 done()
-
+                
+        it 'can make a partial match with  element', (done) ->
+            driver.content('ment sel', 'label', true).attr 'foundme', (attributeValue) ->
+                attributeValue.should.equal 'yes!'
+                done()
