@@ -186,9 +186,10 @@ _.extend WebDriver.prototype, {
 
   title: (titleHandler) -> @getTitle().then proxy @, titleHandler
 
-  content: (content, element) ->
+  content: (content, element, partial) ->
     element = '*' if not element
-    @findElement webdriver.By.xpath("//#{element}[text()='#{content}']")
+    xpath = if partial then "//#{element}[contains(text(),'#{content}')]" else "//#{element}[text()='#{content}']"
+    @findElement webdriver.By.xpath(xpath)
 
   currentUrl: (parsedUrlHandler) ->
     @getCurrentUrl().then (currUrl) =>

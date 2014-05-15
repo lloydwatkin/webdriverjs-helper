@@ -283,9 +283,11 @@ browser.dropdownlist(selector).values(function (values) {
 
 Get first matched button by label, other methods are then available.
 
-#### browser.content('Some tag content' [, 'elementTag' ])
+#### browser.content('Some tag content' [, 'elementTag', partialMatch ])
 
-Find an element by content and tag **(optional)**. Performs a full text match and uses __xpath__ under the hood.
+Find an element by content and tag **(optional)**.
+Performs a full text match and uses __xpath__ under the hood.
+Argument 3 allows for a partial match and defaults to __false__.
 
 #### browser.link(selector)
 Use css selector to find the matched link
@@ -374,6 +376,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+** 1.5.0 2014-05-15
+  * Add support for __partial__ match in ```browser.content```
+  
 ** 1.4.0 2014-05-15
   * Add method ```browser.content('content', [, 'elementTag' ])```
   
