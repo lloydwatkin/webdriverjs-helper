@@ -235,7 +235,18 @@ describe 'webdriver helper', ->
                 attributeValue.should.equal 'yes!'
                 done()
                 
-        it 'can make a partial match with  element', (done) ->
+        it 'can make a partial match with element', (done) ->
             driver.content('ment sel', 'label', true).attr 'foundme', (attributeValue) ->
                 attributeValue.should.equal 'yes!'
                 done()
+                
+        it 'can make a partial match without element with child nodes', (done) ->
+            driver.content('example', null, true).attr 'foundme', (attributeValue) ->
+                attributeValue.should.equal 'yes!'
+                done()
+                
+        it 'can make a partial match with element with child nodes', (done) ->
+            driver.content('example', 'label', true).attr 'foundme', (attributeValue) ->
+                attributeValue.should.equal 'yes!'
+                done()
+        

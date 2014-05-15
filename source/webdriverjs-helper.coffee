@@ -188,7 +188,7 @@ _.extend WebDriver.prototype, {
 
   content: (content, element, partial) ->
     element = '*' if not element
-    xpath = if partial then "//#{element}[contains(text(),'#{content}')]" else "//#{element}[text()='#{content}']"
+    xpath = if partial then "//#{element}[text()[contains(.,'#{content}')]]" else "//#{element}[text()='#{content}']"
     @findElement webdriver.By.xpath(xpath)
 
   currentUrl: (parsedUrlHandler) ->
