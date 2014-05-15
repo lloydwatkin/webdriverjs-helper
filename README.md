@@ -283,6 +283,10 @@ browser.dropdownlist(selector).values(function (values) {
 
 Get first matched button by label, other methods are then available.
 
+#### browser.content('Some tag content' [, 'elementTag' ])
+
+Find an element by content and tag **(optional)**. Performs a full text match and uses __xpath__ under the hood.
+
 #### browser.link(selector)
 Use css selector to find the matched link
 
@@ -370,6 +374,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+** 1.4.0 2014-05-15
+  * Add method ```browser.content('content', [, 'elementTag' ])```
+  
 ** 1.3.0 2014-05-14
   * Add support for ```browser.button(label)``` selector
 
