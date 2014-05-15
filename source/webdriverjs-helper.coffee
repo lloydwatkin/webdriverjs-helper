@@ -186,6 +186,10 @@ _.extend WebDriver.prototype, {
 
   title: (titleHandler) -> @getTitle().then proxy @, titleHandler
 
+  content: (content, element) ->
+    element = '*' if not element
+    @findElement webdriver.By.xpath("//#{element}[text()='#{content}']")
+
   currentUrl: (parsedUrlHandler) ->
     @getCurrentUrl().then (currUrl) =>
       parsedUrlHandler?.call @, currUrl, urlHelper.parse(currUrl)

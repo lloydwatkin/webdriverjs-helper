@@ -217,4 +217,16 @@ describe 'webdriver helper', ->
           elems[0].attr 'name', (name) ->
             name.should.equal 'textbox'
             done()
+            
+    describe 'select label element by content', ->
+        
+        it 'selects element by content', (done) ->
+            driver.content('Element selector', 'label').attr 'foundme', (attributeValue) ->
+                attributeValue.should.equal 'yes!'
+                done()
+        
+        it 'selects element by content', (done) ->
+            driver.content('Element selector').attr 'foundme', (attributeValue) ->
+                attributeValue.should.equal 'yes!'
+                done()
 
