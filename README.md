@@ -17,13 +17,13 @@ This starts a selenium server and runs tests in Firefox.
 
 ## Documentation
 
-You could setup the selenium webdriver like this. Remember to require 'webdriver-helper' to enable friendly apis.
+You could setup the selenium webdriver like this. Remember to require 'webdriverjs-helper' to enable friendly apis.
 
 ```js
 var webdriver = require('selenium-webdriver');
 require('chai').should();
-// enable the friendly apis by requiring 'webdriver-helper'
-require('webdriver-helper'); 
+// enable the friendly apis by requiring 'webdriverjs-helper'
+require('webdriverjs-helper'); 
 
 var builder = new webdriver.Builder().
   usingServer('http://localhost:4444/wd/hub').
