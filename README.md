@@ -376,22 +376,22 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-** 1.5.1 2014-05-15
+**1.5.1** 2014-05-15
   * Support more complex __partial__ matches with child nodes in ```browser.content```
   
-** 1.5.0 2014-05-15
+**1.5.0** 2014-05-15
   * Add support for __partial__ match in ```browser.content```
   
-** 1.4.0 2014-05-15
+**1.4.0** 2014-05-15
   * Add method ```browser.content('content', [, 'elementTag' ])```
   
-** 1.3.0 2014-05-14
+**1.3.0** 2014-05-14
   * Add support for ```browser.button(label)``` selector
 
-** 1.2.0 2014-05-12
+**1.2.0** 2014-05-12
   * Removed [Mr Async](https://github.com/winsonwq/Mr.Async) as a dependency and switched to [async](https://github.com/caolan/async) to solve and `amdefine` issue
 
-** 1.0.0 2014-04-28
+**1.0.0** 2014-04-28
   * Forked from original repository
   * Added `coffee-script` as a dependency
   * Updated tests to kick off a selenium server 
