@@ -20,18 +20,18 @@ This starts a selenium server and runs tests in Firefox.
 You could setup the selenium webdriver like this. Remember to require 'webdriverjs-helper' to enable friendly apis.
 
 ```js
-var webdriver = require('selenium-webdriver');
-require('chai').should();
+var webdriver = require('selenium-webdriver')
+require('chai').should()
 // enable the friendly apis by requiring 'webdriverjs-helper'
-require('webdriverjs-helper'); 
+require('webdriverjs-helper');
 
 var builder = new webdriver.Builder().
   usingServer('http://localhost:4444/wd/hub').
   withCapabilities({
     browserName: 'firefox' 
-  });
-var browser = builder.build();
-browser.get('http://localhost:9001');
+  })
+var browser = builder.build()
+browser.get('http://localhost:9001')
 ```
 ### Browser API
 
@@ -39,7 +39,7 @@ browser.get('http://localhost:9001');
 Go to the path which is relative to current path.
 
 ```js
-browser.navigateTo('/demo.html?a=1&b=2#c=1');
+browser.navigateTo('/demo.html?a=1&b=2#c=1')
 browser.currentUrl(function(currUrl, url) {
   currUrl.should.equal('http://localhost:9001/demo.html?a=1&b=2#c=1')
 });
@@ -49,21 +49,21 @@ browser.currentUrl(function(currUrl, url) {
 Get current url.
 
 ```js
-browser.navigateTo('/demo.html?a=1&b=2#c=1');
+browser.navigateTo('/demo.html?a=1&b=2#c=1')
 browser.currentUrl(function(currUrl, url) {
-  currUrl.should.equal('http://localhost:9001/demo.html?a=1&b=2#c=1');
-  url.protocol.should.equal('http:');
-  url.slashes.should.equal(true);
-  url.host.should.equal('localhost:9001');
-  url.port.should.equal('9001');
-  url.hostname.should.equal('localhost');
-  url.href.should.equal('http://localhost:9001/demo.html?a=1&b=2#c=1');
-  url.hash.should.equal('#c=1');
-  url.search.should.equal('?a=1&b=2');
-  url.query.should.equal('a=1&b=2');
-  url.pathname.should.equal('/demo.html');
-  url.path.should.equal('/demo.html?a=1&b=2');
-});
+  currUrl.should.equal('http://localhost:9001/demo.html?a=1&b=2#c=1')
+  url.protocol.should.equal('http:')
+  url.slashes.should.equal(true)
+  url.host.should.equal('localhost:9001')
+  url.port.should.equal('9001')
+  url.hostname.should.equal('localhost')
+  url.href.should.equal('http://localhost:9001/demo.html?a=1&b=2#c=1')
+  url.hash.should.equal('#c=1')
+  url.search.should.equal('?a=1&b=2')
+  url.query.should.equal('a=1&b=2')
+  url.pathname.should.equal('/demo.html')
+  url.path.should.equal('/demo.html?a=1&b=2')
+})
 ```
 #### browser.refresh()
 Refresh current page.
@@ -79,8 +79,8 @@ Get title in current page.
 
 ```js
 browser.title(function (title) {
-  title.should.equal('your title');
-});
+  title.should.equal('your title')
+})
 ```
 
 ### Window API
@@ -92,24 +92,24 @@ Get current window.
 Get current window's position.
 ```js
 browser.window().position(function (x, y) {
-  x.should.equal(0);
-  y.should.equal(0);
-});
+  x.should.equal(0)
+  y.should.equal(0)
+})
 ```
 
 #### browser.window().position(x, y)
 Set current window's position to (x, y) relative to screen.
 ```js
-browser.window().position(100, 100);
+browser.window().position(100, 100)
 ```
 
 #### browser.window().size(sizeHandler)
 Get current window's size.
 ```js
 browser.window().size(function (width, height) {
-  width.should.equal(500);
-  height.should.equal(500);
-});
+  width.should.equal(500)
+  height.should.equal(500)
+})
 ```
 
 #### browser.window().size(width, height)
@@ -132,8 +132,8 @@ Get count of all matched elements.
 
 ```js
 browser.elements('input').count(function (count) {
-  count.should.equal(6);
-});
+  count.should.equal(6)
+})
 ```
 
 #### browser.elements(selector).get(index, elemHandler)
@@ -141,9 +141,9 @@ Get the element in matched elements according to index.
 
 ```js
 browser.elements('input').get(0, function (elem) {
-  elem.enter('hello world!');
-  // elem.click();
-});
+  elem.enter('hello world!')
+  // elem.click()
+})
 ```
 
 #### browser.elements(selector).initialized
@@ -154,12 +154,12 @@ Initialize all elements and save inside. In initedHandler, `initialized` propert
 
 ```js
 browser.elements('input').init(function (elems) {
-  this.initialized.should.be.true;
-  this.count().should.equal(6);
-  this.get(0).enter('hello world');
-  this.get(1).attr('name').should.equal('textbox');
+  this.initialized.should.be.true
+  this.count().should.equal(6)
+  this.get(0).enter('hello world')
+  this.get(1).attr('name').should.equal('textbox')
   /\* ... \*/
-});
+})
 ```
 
 #### browser.element(selector)
@@ -173,8 +173,8 @@ Get value for the the matched element's value attribute. It could used in `brows
 
 ```js
 browser.element('input#name').value(function (val) {
-  val.should.equal('your name');
-});
+  val.should.equal('your name')
+})
 ```
 
 #### browser.element(selector).attr(attrName, attrHandler)
@@ -182,8 +182,8 @@ Get value of the matched element's attrubute with attribute name `attrName`.
 
 ```js
 browser.element('input[name="textbox"]').attr('name', function (attr) {
-  attr.should.equal('textbox');
-});
+  attr.should.equal('textbox')
+})
 ```
 
 #### browser.element(selector).css(propertyName, valueHandler)
@@ -191,8 +191,8 @@ Get css value of the matched element's css property with name `propertyName`.
 
 ```js
 browser.element('input[name="textbox"]').css('font-family', function (property) {
-  property.should.equal('Georgia');
-});
+  property.should.equal('Georgia')
+})
 ```
 
 #### browser.element(selector).text(textHandler)
@@ -200,8 +200,8 @@ Get the innerText of the matched element.
 
 ```js
 browser.element('body').text(function (text) {
-  text.should.contain('hello world!');
-});
+  text.should.contain('hello world!')
+})
 ```
 
 #### browser.element(selector).html(htmlHandler)
@@ -209,8 +209,8 @@ Get the innerHTML of the matched element.
 
 ```js
 browser.element('body').html(function (html) {
-  html.should.contain('<p>hello world!</p>');
-});
+  html.should.contain('<p>hello world!</p>')
+})
 ```
 
 #### browser.element(selector).isEnabled(enabledHandler)
@@ -218,8 +218,8 @@ Get value for the matched element's status.
 
 ```js
 browser.element('input#btn').isEnabled(function (enabledStatus) {
-  enabledStatus.should.be.false;
-});
+  enabledStatus.should.be.false
+})
 ```
 
 #### browser.element(selector).isDisplayed(displayedHandler)
@@ -227,8 +227,8 @@ Get value for visibility of element.
 
 ```js
 browser.element('#displayed').isDisplayed(function (displayed) {
-  displayed.should.be.false;
-});
+  displayed.should.be.false
+})
 ```
 
 #### browser.input(selector)
@@ -251,7 +251,7 @@ Get the checked status.
 
 ```js
 browser.input('input#checkbox').isChecked(function (checked) {
-  checked.should.be.true;
+  checked.should.be.true
 })
 ```
 
@@ -275,8 +275,8 @@ For the multi-selected dropdownlist, it will return array of values.
 
 ```js
 browser.dropdownlist(selector).values(function (values) {
-  values.should.eql([2, 3]);
-});
+  values.should.eql([2, 3])
+})
 ```
 
 #### browser.button(label)
@@ -304,53 +304,53 @@ browser.link(':contains("Partial Link Text")').click()
 ```js
 browser.exec('alert("hello world!");', function() {
   browser.dialog().text(function (text) {
-    text.should.equal('hello world!');
-  });
-});
+    text.should.equal('hello world!')
+  })
+})
 ```
 
 Use args
 ```js
 browser.exec('alert(arguments[0][0]);', ['hello!'], function() {
   browser.dialog().text(function (text) {
-    text.should.equal('hello!');
-  });
-});
+    text.should.equal('hello!')
+  })
+})
 ```
 
 Use elements
 ```js
-browser.exec('alert(arguments[0][0].name);', browser.elements('input[type="checkbox"]');
+browser.exec('alert(arguments[0][0].name);', browser.elements('input[type="checkbox"]')
 browser.dialog().text(function (text) {
-  text.should.equal('checkbox');
-});
+  text.should.equal('checkbox')
+})
 ```
 
 #### browser.execAsync(script, args, callback)
 
 ```js
-browser.manage().timeouts().setScriptTimeout(5000);
+browser.manage().timeouts().setScriptTimeout(5000)
 browser.execAsync('var callback = arguments[arguments.length - 1];setTimeout(function(){ callback(10); }, 500);', function(num) {
-  num.should.equal(10);
-});
+  num.should.equal(10)
+})
 ```
 
 Use args
 ```js
-browser.manage().timeouts().setScriptTimeout(5000);
+browser.manage().timeouts().setScriptTimeout(5000)
 browser.execAsync('var callback = arguments[arguments.length - 1];var str = arguments[0][0]; setTimeout(function(){ callback(str); }, 500);', ['hello world'], function(str) {
-  str.should.equal('hello world');
+  str.should.equal('hello world')
 });
 ```
 
 Use elements
 ```js
-browser.manage().timeouts().setScriptTimeout(5000);
+browser.manage().timeouts().setScriptTimeout(5000)
 browser.execAsync('var callback = arguments[arguments.length - 1];var elem = arguments[0][0]; setTimeout(function(){ callback(elem); }, 500);', browser.elements('input[type="checkbox"]'), function(element) {
   element.attr('name', function(name) {
-    name.should.equal('checkbox');
-  });
-});
+    name.should.equal('checkbox')
+  })
+})
 ```
 
 ### Alert API
