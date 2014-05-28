@@ -376,6 +376,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+**1.6.0** 2014-05-28
+  * Support partial button label matching
+  
 **1.5.1** 2014-05-15
   * Support more complex __partial__ matches with child nodes in ```browser.content```
   
