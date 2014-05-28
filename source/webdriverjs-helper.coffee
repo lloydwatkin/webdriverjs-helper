@@ -169,8 +169,8 @@ _.extend WebDriver.prototype, {
     return @element selector if partialText is ''
     @findElement webdriver.By.partialLinkText partialText
     
-  button: (label) ->
-    @content label, 'button'
+  button: (label, partial) ->
+    @content label, 'button', partial
         
   dropdownlist: (selector) -> @element selector
 

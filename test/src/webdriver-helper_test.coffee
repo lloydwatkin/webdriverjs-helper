@@ -130,6 +130,11 @@ describe 'webdriver helper', ->
         driver.button('Button Label').then () ->
             done()
         , done
+        
+    it 'should find a button by partial label', (done) ->
+        driver.button('Partial Button Label', true).then () ->
+            done()
+        , done
 
   describe '#displayed', ->
 

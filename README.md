@@ -279,9 +279,9 @@ browser.dropdownlist(selector).values(function (values) {
 });
 ```
 
-#### browser.button(label)
+#### browser.button(label [, partial])
 
-Get first matched button by label, other methods are then available.
+Get first matched button by label, other methods are then available. Set partial to __true__ for partial button label match.
 
 #### browser.content('Some tag content' [, 'elementTag', partialMatch ])
 
