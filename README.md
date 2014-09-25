@@ -376,6 +376,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+**1.7.0** 2014-09-25
+  * Update selenium standalone server to 2.43.1
+
 **1.6.0** 2014-05-28
   * Support partial button label matching
   
