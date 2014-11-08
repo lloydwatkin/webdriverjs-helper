@@ -1,7 +1,7 @@
 {
   "name": "webdriverjs-helper",
   "description": "JavaScript WebDriver Helper offer friendly APIs while using selenium-webdriver.",
-  "version": "1.8.1",
+  "version": "2.0.0",
   "homepage": "https://github.com/surevine/webdriverjs-helper",
   "author": {
     "name": "Wang Qiu",
