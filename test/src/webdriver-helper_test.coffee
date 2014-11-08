@@ -140,7 +140,7 @@ describe 'webdriver helper', ->
 
     it 'should not be displayed', (done) ->
 
-      driver.element('#displayed').isDisplayed (displayed) ->
+      driver.element('#displayed').isVisible (displayed) ->
         displayed.should.be.false
         done();
 

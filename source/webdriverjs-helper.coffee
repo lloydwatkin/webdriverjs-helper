@@ -61,7 +61,7 @@ _.extend webdriver.WebElement.prototype,
   isEnabled: (valHandler) ->
     _isEnabled.call(@).then proxy @, valHandler
 
-  isDisplayed: (valHandler) ->
+  isVisible: (valHandler) ->
     _isDisplayed.call(@).then proxy @, valHandler
 
   value: (valHandler) ->

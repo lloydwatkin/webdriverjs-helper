@@ -222,11 +222,11 @@ browser.element('input#btn').isEnabled(function (enabledStatus) {
 })
 ```
 
-#### browser.element(selector).isDisplayed(displayedHandler)
+#### browser.element(selector).isVisible(displayedHandler)
 Get value for visibility of element.
 
 ```js
-browser.element('#displayed').isDisplayed(function (displayed) {
+browser.element('#displayed').isVisible(function (displayed) {
   displayed.should.be.false
 })
 ```
@@ -376,6 +376,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+**2.0.0** 2014-11-08
+  * Release of 2.0.0
+  * Breaking change `isDisplayed` is now `isVisible` due to #4
+**1.8.1** 2014-11-08
+  * Fix issue #3
 **1.8.0** 2014-09-25
   * Update selenium standalone server to 2.43.1
 
