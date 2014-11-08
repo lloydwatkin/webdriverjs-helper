@@ -89,9 +89,10 @@ _.extend webdriver.WebElement.prototype,
           valuesHandler values
 
   option: (values...) ->
+    values = _.map values, (num) ->
+      num.toString()
     targetOptions = []
     @findElements(webdriver.By.tagName('option')).then (options) ->
-
       async.each options, (option, callback) ->
           option.getAttribute('value').then (optionValue) ->
             targetOptions.push(option) if _.contains values, optionValue

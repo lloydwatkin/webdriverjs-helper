@@ -157,6 +157,11 @@ describe 'webdriver helper', ->
       dropdownlist.value (value) ->
         value.should.equal '2'
         done()
+    it 'works with integer value selectors - issue #3', (done) ->
+      dropdownlist.option 2
+      dropdownlist.value (value) ->
+        value.should.equal '2'
+        done()
 
   describe 'select[name="multi-select-dropdownlist"]', ->
 
