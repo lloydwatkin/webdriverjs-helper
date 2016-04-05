@@ -21,7 +21,7 @@ class Elements extends Array
       @.push(elem) for elem in elems
 
       initHandler?.call @, @
-  
+
   get: (index, getHandler) ->
     index = 0 if index is undefined
     return @[index] if @initialized
@@ -101,25 +101,9 @@ _.extend webdriver.WebElement.prototype,
           _.each targetOptions, (option) ->
             option.click()
 
-_.extend WebDriver.Window.prototype, {
-  position: (x, y) ->
-    if typeof x is 'function'
-      @getPosition().then (position) =>
-        x.call @, position.x, position.y
-    else 
-      @setPosition x, y
-
-  size: (width, height) ->
-    if typeof width is 'function'
-      @getSize().then (size) =>
-        width.call @, size.width, size.height
-    else 
-      @setSize width, height
-}
-
 class Alert
 
-  constructor: (@wdAlert) -> 
+  constructor: (@wdAlert) ->
 
   text: (textHandler) -> @wdAlert.getText().then proxy @, textHandler
 
@@ -169,13 +153,13 @@ _.extend WebDriver.prototype, {
     selector.replace partialLinkTextFormula, (matched, partial) -> partialText = partial
     return @element selector if partialText is ''
     @findElement webdriver.By.partialLinkText partialText
-    
+
   button: (label, partial) ->
     @content label, 'button', partial
-        
+
   dropdownlist: (selector) -> @element selector
 
-  navigateTo: (url) -> 
+  navigateTo: (url) ->
     @currentUrl (currUrl) =>
       @.get urlHelper.resolve currUrl, url
 

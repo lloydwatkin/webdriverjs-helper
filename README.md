@@ -11,7 +11,7 @@ Install the module with: `npm install webdriverjs-helper` to enable the friendly
 
 This starts a selenium server and runs tests in Firefox.
 
-## Build status 
+## Build status
 
 [![Build Status](https://travis-ci.org/surevine/webdriverjs-helper.svg?branch=master)](https://travis-ci.org/surevine/webdriverjs-helper)
 
@@ -28,7 +28,7 @@ require('webdriverjs-helper');
 var builder = new webdriver.Builder().
   usingServer('http://localhost:4444/wd/hub').
   withCapabilities({
-    browserName: 'firefox' 
+    browserName: 'firefox'
   })
 var browser = builder.build()
 browser.get('http://localhost:9001')
@@ -82,45 +82,6 @@ browser.title(function (title) {
   title.should.equal('your title')
 })
 ```
-
-### Window API
-
-#### browser.window()
-Get current window.
-
-#### browser.window().position(positionHandler)
-Get current window's position.
-```js
-browser.window().position(function (x, y) {
-  x.should.equal(0)
-  y.should.equal(0)
-})
-```
-
-#### browser.window().position(x, y)
-Set current window's position to (x, y) relative to screen.
-```js
-browser.window().position(100, 100)
-```
-
-#### browser.window().size(sizeHandler)
-Get current window's size.
-```js
-browser.window().size(function (width, height) {
-  width.should.equal(500)
-  height.should.equal(500)
-})
-```
-
-#### browser.window().size(width, height)
-Set current window's size with `width` and `height`.
-
-```js
-browser.window().size(500, 500)
-```
-
-#### browser.window().maximize()
-Maximize the current window to full screen.
 
 ### Elements API
 
@@ -293,7 +254,7 @@ Argument 3 allows for a partial match and defaults to __false__.
 Use css selector to find the matched link
 
 #### browser.link(partialLinkText)
-*ONLY FOR LINK* 
+*ONLY FOR LINK*
 
 ```js
 browser.link(':contains("Partial Link Text")').click()
@@ -376,6 +337,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+**3.0.0** 2016-04-05
+  * Release of 3.0.0
+  * Breaking change, remove window API extensions due to change in webdriver API
 **2.0.0** 2014-11-08
   * Release of 2.0.0
   * Breaking change `isDisplayed` is now `isVisible` due to #4
@@ -386,16 +350,16 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 **1.6.0** 2014-05-28
   * Support partial button label matching
-  
+
 **1.5.1** 2014-05-15
   * Support more complex __partial__ matches with child nodes in ```browser.content```
-  
+
 **1.5.0** 2014-05-15
   * Add support for __partial__ match in ```browser.content```
-  
+
 **1.4.0** 2014-05-15
   * Add method ```browser.content('content', [, 'elementTag' ])```
-  
+
 **1.3.0** 2014-05-14
   * Add support for ```browser.button(label)``` selector
 
@@ -405,9 +369,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 **1.0.0** 2014-04-28
   * Forked from original repository
   * Added `coffee-script` as a dependency
-  * Updated tests to kick off a selenium server 
-  
-**0.2.1** 2013-10-20 Add `exec` and `execAsync` JavaScript support 
+  * Updated tests to kick off a selenium server
+
+**0.2.1** 2013-10-20 Add `exec` and `execAsync` JavaScript support
 
 **0.2.0** 2013-10-20 Add dialog behaviors
 
@@ -427,5 +391,5 @@ MIT
 
 ## Original license
 
-Copyright (c) 2013 Wang Qiu  
+Copyright (c) 2013 Wang Qiu
 Licensed under the MIT license.
